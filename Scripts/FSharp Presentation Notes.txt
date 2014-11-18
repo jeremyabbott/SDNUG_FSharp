@@ -26,6 +26,7 @@ Slide 10
     - File order - Move order of Module1 so that Program.fs is before Module1
     - Show how changing indentations causes compiler errors
     - Mouse over function to show expected inputs/outputs
+    - Add type annotations to one of the functions
 Slide 12
     - Get back into FSI
     - Clear it out
@@ -33,6 +34,10 @@ Slide 12
     - let add' = add 
     - let add1 = add 1
     - add1 5 // should get 6
+    - Look at the functions saySomethingShort and sayHelloTo
+    - Execute saySomethingShort in FSI with only one parameter
+    	- It returns a function that expects a string and returns a string
+    	
 Slide 15
     - Type annotation time
     - Reset FSI
