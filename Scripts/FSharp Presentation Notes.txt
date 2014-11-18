@@ -34,10 +34,23 @@ Slide 12
     - let add1 = add 1
     - add1 5 // should get 6
 Slide 15
+    - Type annotation time
+    - Reset FSI
+    - let add a b = a + b
+    - add "is this " "what you meant?"
+    - add 1 2 // should throw a type exception
+    - reset FSI
+    - let add (a : int) (b : int) : int = a + b//
+Slide 16
     - Open up module 2
-    - 3 implicit readonly properties were created from this class definition
-    - You cannot set these properties after initialization
-    - Note that you do not need the "new" keyword, although it is supported
-    - "new" is only used when initializing classes that implement IDisposable (as a way to signify that they implement it) 
-Module1
-    saySomethingShort // run this in FSI
+    - Talk about Car
+        - The "x" is like the F# "this" operator. It can be anything, but it needs to be consistent
+        - 3 implicit readonly properties were created from this class definition
+        - You cannot set these properties after initialization
+        - Note that you do not need the "new" keyword, although it is supported
+        - "new" is only used when initializing classes that implement IDisposable (as a way to signify that they implement it) 
+    - Talk about Phone
+        - automatic property for OperatingSystem
+        - Backed by "os" constructor parameter
+        - Print phone prints the OS off of OperatingSystem
+            - When I used os off of the constructor, it didn't udpate after updating OperatingSystem...
