@@ -116,6 +116,4 @@ Slide 33: Pattern Matching Demo
     - Line 72 - Type inference is amazing
     - Go to Module6 to talk about collection matching
         - Line 10 is the cons operator "::"
-
-
-
+        - Line 12 allows for tail recursion.

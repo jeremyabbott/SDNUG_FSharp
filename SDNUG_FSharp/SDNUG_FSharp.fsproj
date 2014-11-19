@@ -53,6 +53,7 @@
     <Compile Include="Module4.fs" />
     <Compile Include="Module5.fs" />
     <Compile Include="Module6.fs" />
+    <Compile Include="Module7.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
   </ItemGroup>
