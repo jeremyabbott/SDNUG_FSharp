@@ -2,8 +2,10 @@ FSharp Presentation Notes
 Slide 3: How did I get here?
     - It's all about context
     - A lot of the tools we're already using are heavily influenced by functional concepts, so let's go to the source.
+    - F# language features make their way into C# and vice-versa
+    - Because JavaScript is becoming uibiquitous, and it is inherently functional, I wanted to look at it from a functional perspective
 Slide 6: F#: 10,000<ft> View
-    - Even if statements evaluate to something
+    - Even "if" evaluates to something
 
 Slide 10: Hello world
     - ctrl + F5
@@ -27,6 +29,15 @@ Slide 12: Immutable by Default
     - let mutable x = "hello world"
     - x = "goodbye world"
     - x <- "goodbye world"
+
+    - never do this:
+    	let mutable someGlobalThing = 1
+    	let calculate a b =
+    		let result = someGlobalThing * (a + b)
+    		someGlobalThing <= someGlobalThing + 1
+    		result
+    	calculate 1 2 |> ignore
+    	calculate 1 2 |> ignore
 Slide 13: Type Inference
     - We said F# is statically typed, but we haven't defined a single type yet.
 
@@ -89,7 +100,23 @@ Slide 25: F# is OO
         - Backed by "os" constructor parameter
         - Print phone prints the OS off of OperatingSystem
             - When I used os off of the constructor, it didn't udpate after updating OperatingSystem...
-Slide 29: Functional Types
+Slide 29: Measurements
+	- Module4
+	- Lines 92 - 94: Units defined with [<Measurement>] attribute.
+	- Note that they're types
+
+	- Line 100: convert a unitless int to an int measured in ft
+	- Line 101: convert an int measured in feet to a unitless in.
+	- Line 102: value is in ft ^ 2, but not sqft
+
+	- line 104: we need a type annotation to get the explicit unit of measurement
+
+	- line 106: uncomment out to show compiler error for type mismatch
+	- line 110: getArea with generic measures
+
+	- lines 121 - 132: measurements with functions that accept an argument
+	- line 127: a cool way to extend a specified type
+Slide 31: Functional Types
     - Tuples
         - When there are only two values it's called a pair
         - fst and snd are "pair functions" and only work on tuples in the shape of 'T * 'T
@@ -102,18 +129,26 @@ Slide 29: Functional Types
         - Defines a member for getting the distance between two points.
         - Line 34: I can copy a property and change only the properties I care about
         - ** demoRecordType function can be called for Module4
-Slide 32: Pattern Matching
+Slide 34: Pattern Matching
     - First example of pattern matching is in Shape.getArea in Module4
-Slide 33: Pattern Matching Demo
+Slide 35: Pattern Matching Demo
+	- Go to Module5 to show off pattern matching
     - Two syntax for expression matching
     - Both accept a string and return a string
     - Delete Wildcard pattern to show compiler warning
     - Third scenario replaces wildcard pattern used to bind a value to a name
         - basically the opposite of the wildcard which ignores the value
         - Note that you can't access the Wildcard pattern inside of the function.
+
     - Go back to Module4 to describe "Identifier Pattern" used to match against a discriminated union
     - Final example in Module5 is record type matching
     - Line 72 - Type inference is amazing
+
     - Go to Module6 to talk about collection matching
         - Line 10 is the cons operator "::"
         - Line 12 allows for tail recursion.
+Slide 36/37:
+	- Refer to pattern matching example for list discussions.
+	- Can also look at Module6 for the list of people
+Slide 40
+	- 

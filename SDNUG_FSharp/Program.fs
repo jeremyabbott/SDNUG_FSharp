@@ -14,6 +14,8 @@ let main argv =
 ////      Module 4
 //    demoRecordType ()
 //    demoShape ()
+    printFToC ()
+    printCToF ()
 //
 ////      Module 5
 //    printBasicPatternMatchingExample ()
@@ -25,5 +27,5 @@ let main argv =
 
 //      Module 7
 //    countInParallel
-    iThinkIGetIt ()
+//    iThinkIGetIt ()
     0 // return an integer exit code
