@@ -1,27 +1,31 @@
 FSharp Presentation Notes
-Slide 7:
+Slide 3: How did I get here?
+    - It's all about context
+    - A lot of the tools we're already using are heavily influenced by functional concepts, so let's go to the source.
+Slide 10: Hello world
+    - ctrl + F5
     - Line 4: open keyword is like "using"
     - Line 6: this is how an attribute is declared. In this case it indicates this is where to enter the application
     - Line 7: main "method" definition
     - Lines 8-11: 4 different ways to say hello
-Slide 8
+Slide 11:
     - In Visual Studio
         View -> Other Windows -> F# Interactive
         Or Ctrl + Alt + F
     - FSI: windows + r/ cmd
     - fsi
     - let x = "hello world";; // It's just a value
-    - let x() = "hello world" // Have to use parentheses to indicate a function with no parameters
-
-    - x();;
-
+    - let sayHello () = printfn "%s" "Hello world"
+    - sayHello ();;
+Slide 12: Immutable by Default
     - let x = "hello world"
     - x = "goodbye world";; // Compares the value of x to "goodbye world" which evaluates to false
 
     - let mutable x = "hello world"
     - x = "goodbye world"
     - x <- "goodbye world"
-Slide 10
+Slide 13
+    - 
     - Binding order - Move order of bindings in Module1 to show compiler errors
     - File order - Move order of Module1 so that Program.fs is before Module1
     - Show how changing indentations causes compiler errors

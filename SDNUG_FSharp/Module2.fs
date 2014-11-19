@@ -1,23 +1,34 @@
 ﻿module Module2
-    type Car (make : string, model : string, year : int) =
-        let numOfTires = 0 // This is private (no member to back it)
-        member x.Make = make // This is effectively a readonly property
-        member x.Model = model
-        member x.Year = year
-        member x.Print() =
-            let car = Car("BMW", "435", 2015)
-            printfn "Make %s, model %s, year %d" car.Make car.Model car.Year |> ignore
 
-    type Phone (os : string, maker : string) =
-        member val OperatingSystem = os with get, set // Initialize a property with a default value
-        member x.Maker = maker
-        // When I had this as os PrintPhone only printed the initial value...
-        member x.PrintPhone() =
-            printfn "OS: %s" x.OperatingSystem 
-                        
-    let printPhone() =
-        let phone = Phone("iOS8.1", "Apple")
-        phone.PrintPhone()
-        phone.OperatingSystem <- "iOS8.1.1"
-        phone.PrintPhone()
+    // The empty parentheses indicate that this function accepts unit
+    let buildAList() =
+        let rand = System.Random()
+        // init expects a count for size
+        // and an initilization function
+        // 
+        List.init 10 (fun _ -> rand.Next(100))
 
+    // mapAList partially applies the map function
+    // map function accepts a function and a list
+    let mapAList =
+        List.map (fun i -> i * i)
+
+
+    // printAList partial applies the
+    // iter function from the List module
+    // iter accepts a function and a list
+    let printAList =
+        List.iter (fun i -> printfn "%i" i) 
+
+    let myList = buildAList()
+
+    // Forward pipelining
+    // Forwards the result of a function to the last argument of another function.
+    myList |> printAList
+    myList |> mapAList |> printAList
+
+    // Functional Composition
+
+    let printMappedList = mapAList >> printAList
+
+    printMappedList (buildAList())

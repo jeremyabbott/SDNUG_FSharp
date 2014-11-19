@@ -1,5 +1,4 @@
 ﻿open Module1
-open Module2
 
 [<EntryPoint>]
 let main argv = 

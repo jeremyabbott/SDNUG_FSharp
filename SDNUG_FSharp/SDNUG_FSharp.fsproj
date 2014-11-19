@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Module1.fs" />
     <Compile Include="Module2.fs" />
+    <Compile Include="Module3.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
   </ItemGroup>
