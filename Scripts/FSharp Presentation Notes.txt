@@ -2,6 +2,9 @@ FSharp Presentation Notes
 Slide 3: How did I get here?
     - It's all about context
     - A lot of the tools we're already using are heavily influenced by functional concepts, so let's go to the source.
+Slide 6: F#: 10,000<ft> View
+    - Even if statements evaluate to something
+
 Slide 10: Hello world
     - ctrl + F5
     - Line 4: open keyword is like "using"
@@ -24,25 +27,48 @@ Slide 12: Immutable by Default
     - let mutable x = "hello world"
     - x = "goodbye world"
     - x <- "goodbye world"
-Slide 13
-    - 
+Slide 13: Type Inference
+    - We said F# is statically typed, but we haven't defined a single type yet.
+
     - Binding order - Move order of bindings in Module1 to show compiler errors
     - File order - Move order of Module1 so that Program.fs is before Module1
     - Show how changing indentations causes compiler errors
     - Mouse over function to show expected inputs/outputs
     - Add type annotations to one of the functions
-Slide 12
-    - Get back into FSI
-    - Clear it out
-    - let add a b = a + b
-    - let add' = add 
-    - let add1 = add 1
-    - add1 5 // should get 6
-    - Look at the functions saySomethingShort and sayHelloTo
-    - Execute saySomethingShort in FSI with only one parameter
-    	- It returns a function that expects a string and returns a string
-    	
-Slide 15
+
+Slide 14: Let's Break it Down
+    - Describe how Module1 works
+    - sayHelloWorld is a function that doesn't take any arguments (technically not true)
+       returns a string
+    - saySomethingShort accepts two parameters
+        returns the concatenation of those paremeters
+    - sayHelloTo
+        - This is an example of partial application
+        - evaluates saySomethingShort with "Hello" as the first argument
+        - returns a function that expects a string and returns a string
+Slide 15: Currying
+    - Emphasize that the F# compiler curries functions
+    - Explain that argument order matters
+Slide 17: Partial Application
+    - Argument order matters
+    - Open up Module2
+    - mapAList
+        - Partially applies List.map by defining an explicit mapping function but not passing a list.
+        - mapAList then accepts the list that was not applied to List.map
+    - printAList
+        - Partially applies List.iter by defining an operation to perform on each item in a list
+        - List is not passed though
+        - printAList accepts the last argument of List.iter to apply it to the function
+    - Pipelining
+        - myList is a list of random integers
+        - printAList accepts a list as its last argument
+        - We pipe the list to printAList as the last argument in the function
+        - We don't care about the output of printAList so we tell the compiler that called this function explicitly for a side effect.
+        - myList is piped to mapAList which is in turn piped to printAList
+    - Line 34 - using parentheses to set precendence
+        - I need to evaluate buildAList before passing it to printMappedList
+        - The parentheses indicate that I need to evaulate the function and it's arguments before printMappedList evaluates it
+Slide 22: F# Types Demo
     - Type annotation time
     - Reset FSI
     - let add a b = a + b
@@ -50,7 +76,7 @@ Slide 15
     - add 1 2 // should throw a type exception
     - reset FSI
     - let add (a : int) (b : int) : int = a + b//
-Slide 16
+Slide 25: F# is OO
     - Open up module 2
     - Talk about Car
         - The "x" is like the F# "this" operator. It can be anything, but it needs to be consistent
@@ -63,3 +89,29 @@ Slide 16
         - Backed by "os" constructor parameter
         - Print phone prints the OS off of OperatingSystem
             - When I used os off of the constructor, it didn't udpate after updating OperatingSystem...
+Slide 29: Functional Types
+    - Tuples
+        - When there are only two values it's called a pair
+        - fst and snd are "pair functions" and only work on tuples in the shape of 'T * 'T
+        - The wildcard character - There's a value at this position, but we don't care
+            - Used when a parameter/named value is expected, but we don't need it
+    - Record Types - Line 21
+        - Syntactic sugar for classes
+        - Defines an X coordinate and a Y coordinate
+        - Overrides a base member (these are just classes and all classes have ToString())
+        - Defines a member for getting the distance between two points.
+        - Line 34: I can copy a property and change only the properties I care about
+        - ** demoRecordType function can be called for Module4
+Slide 32: Pattern Matching
+    - First example of pattern matching is in Shape.getArea in Module4
+Slide 33: Pattern Matching Demo
+    - Two syntax for expression matching
+    - Both accept a string and return a string
+    - Delete Wildcard pattern to show compiler warning
+    - Third scenario replaces wildcard pattern used to bind a value to a name
+        - basically the opposite of the wildcard which ignores the value
+        - Note that you can't access the Wildcard pattern inside of the function
+
+
+
+
