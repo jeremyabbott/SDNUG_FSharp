@@ -110,8 +110,12 @@ Slide 33: Pattern Matching Demo
     - Delete Wildcard pattern to show compiler warning
     - Third scenario replaces wildcard pattern used to bind a value to a name
         - basically the opposite of the wildcard which ignores the value
-        - Note that you can't access the Wildcard pattern inside of the function
-
+        - Note that you can't access the Wildcard pattern inside of the function.
+    - Go back to Module4 to describe "Identifier Pattern" used to match against a discriminated union
+    - Final example in Module5 is record type matching
+    - Line 72 - Type inference is amazing
+    - Go to Module6 to talk about collection matching
+        - Line 10 is the cons operator "::"
 
 
 
