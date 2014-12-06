@@ -1,4 +1,5 @@
 ﻿open Module1
+open Module3
 open Module4
 open Module5
 open Module6
@@ -6,16 +7,18 @@ open Module7
 [<EntryPoint>]
 let main argv = 
 //    // Module 1
-//    printfn "%A" (sayHelloWorld())
+//    printfn "%A" (sayHelloWorld ())
 //    printfn "%A" (saySomethingShort "Hello" "World")
 //    printfn "%A" (sayHelloTo "World")
-//    printfn "%A" (saySomethingElseShort "Hello" "World")
+//    printfn "%A" (saySomethingShort' "Hello" "World")
+//    printCar()
+
 //
 ////      Module 4
-//    demoRecordType ()
+    demoRecordType ()
 //    demoShape ()
-    printFToC ()
-    printCToF ()
+//    printFToC ()
+//    printCToF ()
 //
 ////      Module 5
 //    printBasicPatternMatchingExample ()

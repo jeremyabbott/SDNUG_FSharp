@@ -2,7 +2,7 @@
     /// <summary>
     /// Returns Hello World
     /// </summary>
-    let sayHelloWorld() = "Hello World"
+    let sayHelloWorld () = "Hello World"
 
     /// <summary>
     /// Returns arguments as a concatenated string.
@@ -22,4 +22,5 @@
     /// rewrites functions that accept multiple arguments.
     /// </summary>
     /// <param name="x">The first word in a two word phrase</param>
-    let saySomethingElseShort x = (fun y -> x + " " + y)
+    let saySomethingShort' x =
+        (fun y -> x + " " + y)

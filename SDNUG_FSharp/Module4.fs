@@ -12,7 +12,6 @@
 
     printfn "x' coord: %i; y' coord: %i" x' y'
 
-
     let triple = (1, 2, 3)
     let _, _, z = triple
 
@@ -28,7 +27,7 @@
                             let xDiff = otherCoord.XCoord - x.XCoord
                             let yDiff = otherCoord.YCoord - x.YCoord
                             let result =  ((xDiff * xDiff) + (yDiff * yDiff))
-                            int (System.Math.Sqrt(float result))
+                            int (sqrt (float result))
     
     let thePoint = { XCoord = 5; YCoord = 8 }
     printfn "%s" (thePoint.ToString())
@@ -94,12 +93,12 @@
     [<Measure>] type sqft = foot ^ 2
     [<Measure>] type meter
     [<Measure>] type m = meter
-    [<Measure>] type mSqurd = m ^ 2
+    [<Measure>] type mSqrd = m ^ 2
 
     // convert from unitless to units
     let measuredInFeet = 15.0 * 1.0<ft>
-    let unitLess = 15.0 / 1.0<ft>
-    let squarefeet = 15.0<ft> * 16.0<ft> // note the return type ends up being <ft ^ 2> even though I defined sqft
+    let unitLess = 15.0<ft> / 1.0<ft>
+    let squarefeet = 15.0<foot> * 16.0<foot> // note the return type ends up being <ft ^ 2> even though I defined sqft
 
     let getArea (b : int<ft>) (h : int<ft>) : int<sqft> = b * h
 

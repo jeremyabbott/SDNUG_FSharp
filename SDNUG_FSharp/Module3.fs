@@ -15,6 +15,11 @@
         // When I had this as os PrintPhone only printed the initial value...
         member x.PrintPhone() =
             printfn "OS: %s" x.OperatingSystem 
+
+    let printCar () =
+        let car = Car("BMW", "435", 2015)
+        car.Print()
+
                         
     let printPhone() =
         let phone = Phone("iOS8.1", "Apple")
